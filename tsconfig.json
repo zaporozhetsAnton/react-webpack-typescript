@@ -3,7 +3,6 @@
     "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "incremental": true,
