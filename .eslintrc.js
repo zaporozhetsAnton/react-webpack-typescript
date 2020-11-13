@@ -1,22 +1,34 @@
-module.exports =  {
-  parser:  '@typescript-eslint/parser',
-  extends:  [
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  env: {
+    browser: true,
+    serviceworker: true,
+    jest: true,
+  },
+  extends: [
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'prettier',
+    'prettier/react',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
-  parserOptions:  {
-    ecmaVersion:  2018,
-    sourceType:  'module',
-    ecmaFeatures:  {
-      jsx:  true,
+  ignorePatterns: ['dist'],
+  overrides: [
+    {
+      files: ['webpack.*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 0,
+      },
     },
-  },
-  rules:  {},
-  settings:  {
-    react:  {
-      version:  'detect',
-    },
-  },
+  ],
 };

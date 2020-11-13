@@ -6,13 +6,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.common.config');
 
-
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -21,12 +20,10 @@ module.exports = merge(common, {
       hashDigest: 'hex',
       hashDigestLength: 20,
     }),
-    new CopyWebpackPlugin([
-      { from: path.resolve(__dirname, 'src/assets') }
-    ]),
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'src/assets') }]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-    })
+    }),
   ],
   optimization: {
     runtimeChunk: 'single',
@@ -39,8 +36,8 @@ module.exports = merge(common, {
             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             return `npm.${packageName.replace('@', '')}`;
           },
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 });

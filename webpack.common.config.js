@@ -3,15 +3,15 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/index.tsx')
+    app: path.resolve(__dirname, 'src/index.tsx'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html')
-    })
+      template: path.resolve(__dirname, 'public/index.html'),
+    }),
   ],
   module: {
     rules: [
@@ -20,30 +20,26 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve(__dirname, './tsconfig.json')
-            }
-          }
-        ]
+              configFile: path.resolve(__dirname, './tsconfig.json'),
+            },
+          },
+        ],
       },
       {
         enforce: 'pre',
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          'eslint-loader'
-        ]
+        use: ['eslint-loader'],
       },
       {
         test: /\.js(x?)$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader'
-        ]
+        use: ['babel-loader'],
       },
       {
         test: /\.svg$/,
@@ -89,10 +85,8 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
-      }
-    ]
-  }
+        use: ['file-loader'],
+      },
+    ],
+  },
 };
