@@ -20,8 +20,13 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended', // Make sure this is always the last configuration in the extends array
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   ignorePatterns: ['dist'],
   overrides: [
     {
