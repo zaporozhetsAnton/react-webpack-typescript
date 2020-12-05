@@ -1,5 +1,6 @@
+const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common.config');
 
@@ -8,7 +9,7 @@ module.exports = merge(common, {
   devtool: 'eval-source-map',
   devServer: {
     historyApiFallback: true,
-    contentBase: './dist',
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
     open: true,
     overlay: true,
