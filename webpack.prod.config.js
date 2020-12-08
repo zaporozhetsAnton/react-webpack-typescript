@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -13,13 +12,7 @@ module.exports = merge(common, {
     filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyPlugin({ patterns: [{ from: path.resolve(__dirname, 'src/assets') }] }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-  ],
+  plugins: [new CleanWebpackPlugin(), new CopyPlugin({ patterns: [{ from: path.resolve(__dirname, 'src/assets') }] })],
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
