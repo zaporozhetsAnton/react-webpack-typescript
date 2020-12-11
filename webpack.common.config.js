@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -18,6 +19,7 @@ module.exports = {
     new Dotenv({
       path: path.join(__dirname, `.env.${process.env.NODE_ENV}`),
     }),
+    new ESLintPlugin(),
   ],
   module: {
     rules: [
@@ -37,12 +39,6 @@ module.exports = {
         ],
       },
       {
-        enforce: 'pre',
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: ['eslint-loader'],
-      },
-      {
         test: /\.js(x?)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
@@ -53,38 +49,18 @@ module.exports = {
           {
             loader: 'svg-url-loader',
             options: {
-              // Inline files smaller than 10 kB
               limit: 10 * 1024,
-              noquotes: true,
             },
           },
         ],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpe?g|png|gif)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 10 * 1024,
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                enabled: false,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
             },
           },
         ],
