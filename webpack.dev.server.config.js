@@ -13,5 +13,9 @@ module.exports = merge(common, {
     open: true,
     overlay: true,
     progress: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    // if you need public url for your dev server uncomment below lines
+    // host: '0.0.0.0',
+    // public: require('os').hostname().toLowerCase() + ':8080',
   },
 });
