@@ -15,7 +15,9 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyPlugin({ patterns: [{ from: path.resolve(__dirname, 'src/assets') }] }),
+    new CopyPlugin({
+      patterns: [{ from: path.resolve(__dirname, 'src/assets') }, { from: path.resolve(__dirname, 'public') }],
+    }),
     new ImageMinimizerPlugin({
       minimizerOptions: {
         plugins: [

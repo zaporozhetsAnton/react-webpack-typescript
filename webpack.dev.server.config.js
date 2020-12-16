@@ -8,7 +8,8 @@ module.exports = merge(common, {
   devtool: 'eval-source-map',
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'public'),
+    watchContentBase: true,
     hot: true,
     open: true,
     overlay: true,
