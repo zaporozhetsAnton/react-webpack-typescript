@@ -22,6 +22,7 @@ module.exports = {
     new ESLintPlugin(),
   ],
   module: {
+    // there is no css loader because it is better to use css in js approach, e.g. https://github.com/cssinjs/jss
     rules: [
       {
         test: /\.ts(x?)$/,
@@ -44,30 +45,18 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10 * 1024,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10 * 1024,
-            },
-          },
-        ],
+        test: /\.(jpe?g|png|gif|svg)$/,
+        type: 'asset',
+        generator: {
+          filename: 'images/[hash][ext][query]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]',
+        },
       },
     ],
   },
