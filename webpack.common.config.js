@@ -15,6 +15,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
+      scriptLoading: 'defer',
+      favicon: path.resolve(__dirname, './src/assets/favicon.png'),
     }),
     new Dotenv({
       path: path.join(__dirname, `.env.${process.env.NODE_ENV}`),
