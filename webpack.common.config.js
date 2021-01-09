@@ -28,6 +28,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts(x?)$/,
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           {
@@ -43,11 +44,13 @@ module.exports = {
       },
       {
         test: /\.js(x?)$/,
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
+        include: path.resolve(__dirname, 'src'),
         type: 'asset',
         generator: {
           filename: 'images/[hash][ext][query]',
@@ -55,6 +58,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
+        include: path.resolve(__dirname, 'src'),
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[hash][ext][query]',
