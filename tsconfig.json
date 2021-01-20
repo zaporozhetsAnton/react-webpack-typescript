@@ -12,15 +12,16 @@
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
     "strict": true, // Enable all strict type checking options
     "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
     "module": "esnext", // Specify module code generation
     "moduleResolution": "node", // Resolve modules using Node.js style
-    "isolatedModules": true, // Unconditionally emit imports for unresolved files
     "resolveJsonModule": true, // Include modules imported with .json extension
+    "isolatedModules": true, // Unconditionally emit imports for unresolved files
     "jsx": "react", // Support JSX in .tsx files
+    // not from CRA
     "sourceMap": true, // Generate corrresponding .map file
     "noUnusedLocals": true, // Report errors on unused locals
     "noUnusedParameters": true, // Report errors on unused parameters
-    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
     "baseUrl": "src",  // Lets you set a base directory to resolve non-absolute module names
     "paths": {  // A series of entries which re-map imports to lookup locations relative to the baseUrl
       "@/*": ["*"]

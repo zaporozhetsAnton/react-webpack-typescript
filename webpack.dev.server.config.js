@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const common = require('./webpack.common.config');
 
@@ -19,4 +20,5 @@ module.exports = merge(common, {
     // host: '0.0.0.0',
     // public: require('os').hostname().toLowerCase() + ':8080',
   },
+  plugins: [new CaseSensitivePathsPlugin()],
 });
