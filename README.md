@@ -1,3 +1,3 @@
 # react-webpack-typescript
 
-Reactjs boilerplate with configurated webpack, typescript, babel, eslint, prettier.
+Reactjs boilerplate with configured webpack, typescript, babel, eslint, prettier.
