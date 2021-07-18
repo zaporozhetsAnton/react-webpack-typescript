@@ -8,6 +8,7 @@ module.exports = {
         corejs: { version: 3, proposals: true },
         targets: 'defaults',
         bugfixes: true,
+        modules: false, // enable tree shaking
       },
     ],
     [
