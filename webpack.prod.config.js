@@ -45,8 +45,28 @@ module.exports = merge(common, {
     runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
+//       When app gets bigger check which cacheGroups/defaultVendors configuration is better
+//       cacheGroups: {
+//         ckeditorVendor: {
+//           test: /[\\/]node_modules[\\/](@ckeditor)[\\/]/,
+//           name: 'ckeditorVendor',
+//           enforce: true,
+//           chunks: 'all',
+//         },
+//         utilityFirstVendorsChunk: {
+//           test: /[\\/]node_modules[\\/](next|@apollo|@stryberventures)[\\/]/,
+//           name: 'utilityFirstVendorsChunk',
+//           enforce: true,
+//           chunks: 'all',
+//         },
+//         utilitySecondVendorsChunk: {
+//           test: /[\\/]node_modules[\\/](react-dom|react-jss|lodash|graphql|react-multi-carousel)[\\/]/,
+//           name: 'utilitySecondVendorsChunk',
+//           enforce: true,
+//           chunks: 'all',
+//         },
+//       };
       cacheGroups: {
-        // When app gets bigger check which defaultVendors configuration is better
         // defaultVendors: {
         //   chunks: 'all',
         //   test: /[\\/]node_modules[\\/]/,
